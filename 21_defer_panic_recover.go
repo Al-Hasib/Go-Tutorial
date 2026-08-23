@@ -85,8 +85,9 @@ func safeStep1() {
 }
 
 // a helper that turns a panicking function into a normal error return
-func safeCall(f func()) error {
-	var err error
+// the return value MUST be named - only then can defer write into it
+// after a panic skips straight past "return err" below
+func safeCall(f func()) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("recovered: %v", r)
