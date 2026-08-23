@@ -20,6 +20,15 @@ func swap(a, b string) (string, string) {
 	return b, a
 }
 
+// function with slice as parameter
+func sumSlice(numbers []int) int{
+	total := 0
+	for _, number := range numbers {
+		total += number
+	}
+	return total
+}
+
 // named return values
 func divide(a, b float64) (result float64, err error){
 	if b == 0 {
@@ -102,6 +111,11 @@ func main() {
 	swappedA, swappedB := swap("first", "second")
 	fmt.Println("Swapped:", swappedA, swappedB)
 
+	slice := []int{1, 2, 3, 4, 5}
+	sliceSum := sumSlice(slice)
+	fmt.Println("Slice Sum:", sliceSum)
+
+	
 	divResult, divErr := divide(10, 2)
 	if divErr != nil {
 		fmt.Println("Error:", divErr)
@@ -136,4 +150,5 @@ func main() {
 	// Example usage of anonymous function
 	multiplied := multiply(10, 5)
 	fmt.Println("Anonymous Function Result:", multiplied)
+
 }
