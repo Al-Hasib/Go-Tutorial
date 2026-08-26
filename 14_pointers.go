@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
-func changeAge(age *int) {
+func ChangeAge(age int){
+	age = 20
+}
+
+func changeAgePointer(age *int) {
 	*age = 20
 }
 
@@ -39,7 +43,10 @@ func main() {
 	fmt.Println(*p) //value
 
 	age:=15
-	changeAge(&age)
+	ChangeAge(age)
+	fmt.Println(age) 
+	
+	changeAgePointer(&age)
 	fmt.Println(age)
 
 	var pointer_variable *int

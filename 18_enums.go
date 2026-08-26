@@ -19,8 +19,18 @@ const (
 )
 
 // giving names to the values - makes them print nicely
+//
+// note: Go enums aren't type-safe/closed - nothing stops someone from writing
+// Weekday(99). "return names[d]" alone would panic with "index out of range"
+// for such a value, so real code should bounds-check before indexing.
+//
+// for a real project, instead of hand-writing this method, you'd typically
+// run `go generate` with golang.org/x/tools/cmd/stringer to generate it
 func (d Weekday) String() string {
 	names := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+	if d < 0 || int(d) >= len(names) {
+		return fmt.Sprintf("Unknown Weekday(%d)", int(d))
+	}
 	return names[d]
 }
 
@@ -74,12 +84,21 @@ func main() {
 	}
 
 	//enum in a switch
+	//
+	// caveat: the compiler does NOT check for exhaustiveness here - if you add
+	// a new constant to the Weekday block later, this switch keeps compiling
+	// fine and silently falls into "default" instead of warning you
 	switch today {
 	case Saturday, Sunday:
 		fmt.Println("weekend")
 	default:
 		fmt.Println("weekday")
 	}
+
+	//out-of-range enum value - compiles fine because Go enums aren't a closed
+	//set, but String() (defined above) guards against the panic and reports it
+	badDay := Weekday(99)
+	fmt.Println(badDay) // Unknown Weekday(99)
 
 	//skipped value
 	fmt.Println(Small, Large) // 0 2
@@ -106,5 +125,18 @@ func main() {
 	//plain enum without iota
 	dir := Left
 	fmt.Println(dir) // 2 (no String() method, so it prints the number)
+
+	//enum values as map keys - handy for lookups keyed by a "category"
+	isWorkday := map[Weekday]bool{
+		Monday:    true,
+		Tuesday:   true,
+		Wednesday: true,
+		Thursday:  true,
+		Friday:    true,
+		Saturday:  false,
+		Sunday:    false,
+	}
+	fmt.Println(isWorkday[Wednesday]) // true
+	fmt.Println(isWorkday[Sunday])    // false
 
 }
