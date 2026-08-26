@@ -20,28 +20,36 @@ func performOperation(a, b int, callback func(int)) {
 	callback(result)
 }
 
+func changeValue(count int) {
+	count = count + 1
+}
+
 func main() {
+
 	// closure - function that can capture and remember the variables from its surrounding scope
-	count := 0
-	increment := func() int {
-		count++
-		return count
-	}
+	// count := 0
+	// increment := func() int {
+	// 	count++
+	// 	return count
+	// }
 
-	fmt.Println(increment())
-	fmt.Println(increment())
-	fmt.Println(increment())
+	// fmt.Println(increment())
+	// fmt.Println(increment())
+	// fmt.Println(increment())
 
-	fmt.Println("Final count:", count)
+	// fmt.Println("Final count:", count)
 
-	// closure with function returning another function
-	counterFunc := counter()
-	fmt.Println(counterFunc())
-	fmt.Println(counterFunc())
-	fmt.Println(counterFunc())
+	// changeValue(count)
+	// fmt.Println(count)
 
-	// closure passed as a callback - the closure captures "label" from main's
-	// scope even though it is invoked later, from inside performOperation
+	// // closure with function returning another function
+	// counterFunc := counter()
+	// fmt.Println(counterFunc())
+	// fmt.Println(counterFunc())
+	// fmt.Println(counterFunc())
+
+	// // closure passed as a callback - the closure captures "label" from main's
+	// // scope even though it is invoked later, from inside performOperation
 	label := "Sum result:"
 	performOperation(5, 7, func(result int) {
 		fmt.Println(label, result)

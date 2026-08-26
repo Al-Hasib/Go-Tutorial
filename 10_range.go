@@ -9,12 +9,13 @@ func main() {
 	// iterate over an array
 	// arr := [5]int{1, 2, 3, 4, 5}
 	// for i, v := range arr {
-	// 	fmt.Printf("Index: %d, Value: %d\n", i, v)
+	// 	fmt.Println("index", i, "value", v)
+	// 	// fmt.Printf("Index: %d, Value: %d\n", i, v)
 	// }
 
 	// numbers := []int{10, 20, 30}
 
-	// for _, value := range numbers {
+	// for _ , value := range numbers {
 	// 	fmt.Println(value)
 	// }
 
@@ -25,7 +26,7 @@ func main() {
 	// }
 
 	// iterate over a string
-	// str := "hello"
+	// str := "hello world"
 	// for i, v := range str {
 	// 	fmt.Printf("Index: %d, Value: %c\n", i, v)
 	// }
@@ -35,20 +36,20 @@ func main() {
 	// }
 
 	// // iterate over a map
-	// myMap := map[string]int{"one": 1, "two": 2, "three": 3}
+	myMap := map[string]int{"one": 1, "two": 2, "three": 3}
 	// for k, v := range myMap {
 	// 	fmt.Printf("Key: %s, Value: %d\n", k, v)
 	// }
 
 	// get only keys from a map
-	// for k := range myMap {
-	// 	fmt.Println("Key:", k)
-	// }
+	for k := range myMap {
+		fmt.Println("Key:", k)
+	}
 
 	// // get only values from a map
-	// for _, v := range myMap {
-	// 	fmt.Println("Value:", v)
-	// }
+	for _, v := range myMap {
+		fmt.Println("Value:", v)
+	}
 
 
 }

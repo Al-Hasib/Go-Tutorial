@@ -22,21 +22,28 @@ func main(){
 	// Directory/file traversal
 	// Divide-and-conquer algorithms
 	// Backtracking
-
+	// countDown(5)
 	
 	//factorial of a number
-	var factorial func(n int) int
-	factorial = func(n int) int {
+	// var factorial func(n int) int
+
+	factorial := func(n int) int {
 		if n == 0 {
 			return 1
 		}
 		return n * factorial(n-1)
 	}
 	
+	// 5 * factorial(4)
+	// 5 * 4 * factorial(3)
+	// 5 * 4 * 3 * factorial(2)
+	// 5 * 4 * 3 * 2 * factorial(1)
+	// 5 * 4 * 3 * 2 * 1 * 1
+	
 
 	fmt.Println(factorial(5))
 
-	countDown(5)
+	
 
 
 }

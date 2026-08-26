@@ -10,17 +10,17 @@ func greet() {
     fmt.Println("Hello!")
 }
 
-// function with parameters
+// // function with parameters
 func add(a int, b int) int {
 	return a + b	
 }
 
-// function with multiple return values
+// // function with multiple return values
 func swap(a, b string) (string, string) {
 	return b, a
 }
 
-// function with slice as parameter
+// // function with slice as parameter
 func sumSlice(numbers []int) int{
 	total := 0
 	for _, number := range numbers {
@@ -103,52 +103,53 @@ var multiply = func(a, b int) int {
 func main() {
 
 	//functions - block of code that performs a specific task, can take parameters and return values
-	greet()
+	// greet()
+	// greet()
 
-	summation := add(5, 10)
-	fmt.Println("Result:", summation)
+	// summation := add(5, 3)
+	// fmt.Println("Result:", summation)
 
-	swappedA, swappedB := swap("first", "second")
-	fmt.Println("Swapped:", swappedA, swappedB)
+	// swappedA, swappedB := swap("first", "second")
+	// fmt.Println("Swapped:", swappedA, swappedB)
 
-	slice := []int{1, 2, 3, 4, 5}
-	sliceSum := sumSlice(slice)
-	fmt.Println("Slice Sum:", sliceSum)
+	// slice := []int{1, 2, 3, 4, 5}
+	// sliceSum := sumSlice(slice)
+	// fmt.Println("Slice Sum:", sliceSum)
 
 	
-	divResult, divErr := divideNumbers(10, 2)
-	if divErr != nil {
-		fmt.Println("Error:", divErr)
-	} else {
-		fmt.Println("Division Result:", divResult)
-	}
+	// divResult, divErr := divideNumbers(10, 0)
+	// if divErr != nil {
+	// 	fmt.Println("Error:", divErr)
+	// } else {
+	// 	fmt.Println("Division Result:", divResult)
+	// }
 
-	// Example usage of getResults function
-	students := map[string]int{
-		"Alice":   85,
-		"Bob":     72,
-		"Charlie": 60,
-		"David":   45,
-		"Eve":     30,
-	}
-	grades, ranks := getResults(students)
-	fmt.Println("Grades:", grades)
-	fmt.Println("Ranks:", ranks)
-
-
-	// Example usage of sum function
-	total := sum(1, 2, 3, 4, 5)
-	fmt.Println("Total Sum:", total)
+	// // Example usage of getResults function
+	// students := map[string]int{
+	// 	"Alice":   55,
+	// 	"Bob":     72,
+	// 	"Charlie": 60,
+	// 	"David":   95,
+	// 	"Eve":     30,
+	// }
+	// grades, ranks := getResults(students)
+	// fmt.Println("Grades:", grades)
+	// fmt.Println("Ranks:", ranks)
 
 
-	// Example usage of applyOperation function
-	result := applyOperation(10, 5, func(x, y int) int {
-		return x + y
-	})
-	fmt.Println("Operation Result:", result)
+	// // Example usage of sum function
+	// total := sum(1, 2, 3, 4, 5,7,4)
+	// fmt.Println("Total Sum:", total)
 
-	// Example usage of anonymous function
-	multiplied := multiply(10, 5)
-	fmt.Println("Anonymous Function Result:", multiplied)
+
+	// // // Example usage of applyOperation function
+	// result := applyOperation(10, 5, func(x, y int) int {
+	// 	return x + y
+	// })
+	// fmt.Println("Operation Result:", result)
+
+	// // Example usage of anonymous function
+	// multiplied := multiply(10, 5)
+	// fmt.Println("Anonymous Function Result:", multiplied)
 
 }

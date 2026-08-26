@@ -13,14 +13,15 @@ func main() {
 	// fmt.Println(myMap == nil)
 
 	// // initialize a map
-	// myMap = make(map[string]int)
+	myMap := make(map[string]int)
 	// fmt.Println(myMap)
 
 	// // add key-value pairs to the map
-	// myMap["one"] = 1
-	// myMap["two"] = 2
-	// myMap["three"] = 3
-	// fmt.Println(myMap)
+	myMap["one"] = 1
+	myMap["two"] = 2
+	myMap["three"] = 3
+	fmt.Println(myMap)
+	// fmt.Println(len(myMap))
 
 	// // update a value in the map
 	// myMap["two"] = 22
@@ -30,7 +31,7 @@ func main() {
 	// fmt.Println(myMap["two"])
 
 	// // check if a key exists
-	// value, ok := myMap["four"]
+	// value, ok := myMap["one"]
 	// if ok {
 	// 	fmt.Println(value)
 	// } else {
@@ -54,6 +55,10 @@ func main() {
 	// nestedMap["first"] = make(map[string]int)
 	// nestedMap["first"]["one"] = 1
 	// nestedMap["first"]["two"] = 2
+
+	// nestedMap["second"] = make(map[string]int)
+	// nestedMap["second"]["one"] = 1
+	// nestedMap["second"]["two"] = 2
 	// fmt.Println(nestedMap)
 
 	// // maps with slices as values
@@ -61,6 +66,7 @@ func main() {
 	// sliceMap["numbers"] = []int{1, 2, 3, 4, 5}
 	// sliceMap["letters"] = []int{65, 66, 67}
 	// fmt.Println(sliceMap)
+	// fmt.Println(sliceMap["numbers"])
 
 
 }
