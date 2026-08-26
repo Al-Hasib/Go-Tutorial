@@ -5,7 +5,7 @@ import (
     "sort"
 )
 
-
+//first function
 func greet() {
     fmt.Println("Hello!")
 }
@@ -30,7 +30,7 @@ func sumSlice(numbers []int) int{
 }
 
 // named return values
-func divide(a, b float64) (result float64, err error){
+func divideNumbers(a, b float64) (result float64, err error) {
 	if b == 0 {
 		err = fmt.Errorf("division by zero")
 		return
@@ -116,7 +116,7 @@ func main() {
 	fmt.Println("Slice Sum:", sliceSum)
 
 	
-	divResult, divErr := divide(10, 2)
+	divResult, divErr := divideNumbers(10, 2)
 	if divErr != nil {
 		fmt.Println("Error:", divErr)
 	} else {

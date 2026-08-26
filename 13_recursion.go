@@ -32,6 +32,7 @@ func main(){
 		}
 		return n * factorial(n-1)
 	}
+	
 
 	fmt.Println(factorial(5))
 
