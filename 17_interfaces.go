@@ -26,6 +26,14 @@ func (r Rectangle) Area() float64 {
 	return r.Width * r.Height
 }
 
+type Circle_ struct {
+	Redius float64
+}
+
+func (c Circle_) Area() float64 {
+	return 3.14 * c.Redius * c.Redius
+}
+
 // a function can accept the interface instead of one specific type
 func printArea(s Shape) {
 	fmt.Println(s.Area())
@@ -54,58 +62,73 @@ func describe(v interface{}) {
 
 func main() {
 
-	//Square and Rectangle are different types, but both satisfy Shape
-	sq := Square{Side: 2}
-	r := Rectangle{Width: 3, Height: 4}
+	// //Square and Rectangle are different types, but both satisfy Shape
+	// sq := Square{Side: 2}
+	// r := Rectangle{Width: 3, Height: 4}
+	// c:= Circle_{Redius: 3}
 
-	printArea(sq)
-	printArea(r)
+	// println(sq.Area())
+	// println(r.Area())
 
-	//a slice of the interface type can hold different concrete types
-	shapes := []Shape{sq, r}
-	for _, s := range shapes {
-		fmt.Println(s.Area())
-	}
+	// printArea(sq)
+	// printArea(r)
+	// printArea(c)
 
-	//an interface variable can hold any type that satisfies it
-	var shape Shape
-	shape = sq
-	fmt.Println(shape.Area())
-	shape = r
-	fmt.Println(shape.Area())
+	// //a slice of the interface type can hold different concrete types
+	// shapes := []Shape{sq, r, c}
+	// for _, s := range shapes {
+	// 	fmt.Println(s.Area())
+	// }
 
-	//multiple methods
-	animals := []Animal{Dog{}, Cat{}}
-	for _, a := range animals {
-		fmt.Println(a.Name(), "says", a.Sound())
-	}
+	// //an interface variable can hold any type that satisfies it
+	// var shape Shape
+	// shape = sq
+	// fmt.Println(shape.Area())
+	// shape = r
+	// fmt.Println(shape.Area())
 
-	//type assertion - get the concrete type back out of an interface
-	var s Shape = Square{Side: 5}
-	square, ok := s.(Square)
-	fmt.Println(square, ok) // {5} true
+	// //multiple methods
+	// animals := []Animal{Dog{}, Cat{}}
+	// for _, a := range animals {
+	// 	fmt.Println(a.Name(), "says", a.Sound())
+	// }
 
-	_, ok = s.(Rectangle)
-	fmt.Println(ok) // false
+	// //type assertion - get the concrete type back out of an interface
+	// var s Shape = Square{Side: 5}
+	// square, ok := s.(Square)
+	// fmt.Println(square, ok) // {5} true
 
-	//type switch - check which concrete type it is
-	checkShape := func(s Shape) {
-		switch v := s.(type) {
-		case Square:
-			fmt.Println("square with side", v.Side)
-		case Rectangle:
-			fmt.Println("rectangle", v.Width, "x", v.Height)
-		default:
-			fmt.Println("unknown shape")
-		}
-	}
-	checkShape(sq)
-	checkShape(r)
+	// _, ok = s.(Rectangle)
+	// fmt.Println(ok) // false
 
-	//empty interface - accepts anything
-	describe(42)
-	describe("hello")
-	describe(sq)
-	describe(true)
+
+	// //type switch - check which concrete type it is
+	// checkShape := func(s Shape) {
+	// 	switch v := s.(type) {
+	// 	case Square:
+	// 		fmt.Println("square with side", v.Side)
+	// 	case Rectangle:
+	// 		fmt.Println("rectangle", v.Width, "x", v.Height)
+	// 	default:
+	// 		fmt.Println("unknown shape")
+	// 	}
+	// }
+	// checkShape(sq)
+	// checkShape(r)
+
+	// //empty interface - accepts anything
+	// describe(42)
+	// describe("hello")
+	// describe(sq)
+	// describe(true)
+
+	// data := []interface{}{
+	// 	"Rahim",
+	// 	20,
+	// 	true,
+	// 	3.14,
+	// }
+
+	// fmt.Println(data)
 
 }

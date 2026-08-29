@@ -73,55 +73,55 @@ func main() {
 
 	//calling a value receiver method
 	c := Circle{Radius: 2}
-	fmt.Println(c.Area())
+	// fmt.Println(c.Area())
 
-	//pointer receiver changes the original
-	c.Grow(3)
-	fmt.Println(c.Radius) // 5
+	// // //pointer receiver changes the original
+	// c.Grow(3)
+	// fmt.Println(c.Radius) // 5
 
-	//value receiver cannot change the original
-	c.GrowWrong(100)
-	fmt.Println(c.Radius) // still 5
+	// // //value receiver cannot change the original
+	// c.GrowWrong(100)
+	// fmt.Println(c.Radius) // still 5
 
-	//Go adds & automatically, so these two are the same
-	c.Grow(1)
-	(&c).Grow(1)
-	fmt.Println(c.Radius) // 7
+	// // //Go adds & automatically, so these two are the same
+	// c.Grow(1)
+	// (&c).Grow(1)
+	// fmt.Println(c.Radius) // 7
 
-	//Go adds * automatically too, so a pointer can call both kinds
-	p := &Circle{Radius: 10}
-	fmt.Println(p.Area()) // same as (*p).Area()
-	p.Grow(5)
-	fmt.Println(p.Radius)
+	// //Go adds * automatically too, so a pointer can call both kinds
+	// p := &Circle{Radius: 10}
+	// fmt.Println(p.Area()) // same as (*p).Area()
+	// p.Grow(5)
+	// fmt.Println(p.Radius)
 
-	//pointer receivers are useful for changing state
-	counter := Counter{}
-	counter.Increment()
-	counter.Increment()
-	counter.Increment()
-	fmt.Println(counter.Count) // 3
-	counter.Reset()
-	fmt.Println(counter.Count) // 0
+	// //pointer receivers are useful for changing state
+	// counter := Counter{}
+	// counter.Increment()
+	// counter.Increment()
+	// counter.Increment()
+	// fmt.Println(counter.Count) // 3
+	// counter.Reset()
+	// fmt.Println(counter.Count) // 0
 
-	//method on a non-struct type
-	temp := Celsius(100)
-	fmt.Println(temp.ToFahrenheit()) // 212
+	// //method on a non-struct type
+	// temp := Celsius(100)
+	// fmt.Println(temp.ToFahrenheit()) // 212
 
-	//method on a slice type
-	nums := Numbers{1, 2, 3, 4, 5}
-	fmt.Println(nums.Sum()) // 15
+	// //method on a slice type
+	// nums := Numbers{1, 2, 3, 4, 5}
+	// fmt.Println(nums.Sum()) // 15
 
-	//String() is called automatically when printing
-	point := Point{X: 3, Y: 7}
-	fmt.Println(point)   // (3, 7)
-	fmt.Println(point.X) // fields still work normally
+	// //String() is called automatically when printing
+	// point := Point{X: 3, Y: 7}
+	// fmt.Println(point)   // (3, 7)
+	// fmt.Println(point.X, point.Y) // fields still work normally
 
-	//method vs function - same result, different style
-	fmt.Println(c.Area())
-	fmt.Println(areaFunc(c))
+	// //method vs function - same result, different style
+	// fmt.Println(c.Area())
+	// fmt.Println(areaFunc(c))
 
-	//a method can be stored in a variable
-	getArea := c.Area
-	fmt.Println(getArea())
+	// // //a method can be stored in a variable
+	// getArea := c.Area
+	// fmt.Println(getArea())
 
 }

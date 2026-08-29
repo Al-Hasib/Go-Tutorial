@@ -74,59 +74,59 @@ const (
 func main() {
 
 	//using the enum like a normal value
-	today := Wednesday
-	fmt.Println(today)      // Wednesday (because of String())
-	fmt.Println(int(today)) // 3
+	// today := Sunday
+	// fmt.Println(today)      // Wednesday (because of String())
+	// fmt.Println(int(today)) // 3
 
-	//comparing enum values
-	if today == Wednesday {
-		fmt.Println("midweek")
-	}
+	// //comparing enum values
+	// if today == Wednesday {
+	// 	fmt.Println("midweek")
+	// }
 
 	//enum in a switch
 	//
 	// caveat: the compiler does NOT check for exhaustiveness here - if you add
 	// a new constant to the Weekday block later, this switch keeps compiling
 	// fine and silently falls into "default" instead of warning you
-	switch today {
-	case Saturday, Sunday:
-		fmt.Println("weekend")
-	default:
-		fmt.Println("weekday")
-	}
+	// switch today {
+	// case Saturday, Sunday:
+	// 	fmt.Println("weekend")
+	// default:
+	// 	fmt.Println("weekday")
+	// }
 
-	//out-of-range enum value - compiles fine because Go enums aren't a closed
-	//set, but String() (defined above) guards against the panic and reports it
-	badDay := Weekday(99)
-	fmt.Println(badDay) // Unknown Weekday(99)
+	// //out-of-range enum value - compiles fine because Go enums aren't a closed
+	// //set, but String() (defined above) guards against the panic and reports it
+	// badDay := Weekday(0)
+	// fmt.Println(badDay) // Unknown Weekday(99)
 
-	//skipped value
-	fmt.Println(Small, Large) // 0 2
+	// // //skipped value
+	// fmt.Println(Small, Large) // 0 2
 
-	//fixed values, not from iota
-	fmt.Println(StatusOK, StatusNotFound, StatusError)
+	// // //fixed values, not from iota
+	// fmt.Println(StatusOK, StatusNotFound, StatusError)
 
-	//bit flag style enum - combine with |
-	perms := Read | Write
-	fmt.Println(perms) // 3
+	// //bit flag style enum - combine with |
+	// perms := Read | Write | Execute
+	// fmt.Println(perms) // 3
 
-	hasWrite := perms&Write != 0
-	fmt.Println(hasWrite) // true
+	// hasWrite := perms&Write != 0
+	// fmt.Println(hasWrite) // true
 
-	hasExecute := perms&Execute != 0
-	fmt.Println(hasExecute) // false
+	// hasExecute := perms&Execute != 0
+	// fmt.Println(hasExecute) // false
 
-	//looping over all enum values
+	// //looping over all enum values
 	for d := Sunday; d <= Saturday; d++ {
 		fmt.Print(d, " ")
 	}
 	fmt.Println()
 
-	//plain enum without iota
+	// //plain enum without iota
 	dir := Left
 	fmt.Println(dir) // 2 (no String() method, so it prints the number)
 
-	//enum values as map keys - handy for lookups keyed by a "category"
+	// //enum values as map keys - handy for lookups keyed by a "category"
 	isWorkday := map[Weekday]bool{
 		Monday:    true,
 		Tuesday:   true,
