@@ -73,16 +73,16 @@ type Pair[K, V any] struct {
 func main() {
 
 	//works with int
-	PrintSlice([]int{1, 2, 3})
+	// PrintSlice([]int{1, 2, 3})
 
-	//same function works with string - no rewrite needed
-	PrintSlice([]string{"a", "b", "c"})
+	// //same function works with string - no rewrite needed
+	// PrintSlice([]string{"a", "b", "c"})
 
-	//Go usually infers T, but it can be written explicitly
-	PrintSlice[float64]([]float64{1.1, 2.2})
+	// //Go usually infers T, but it can be written explicitly
+	// PrintSlice[float64]([]float64{1.1, 2.2})
 
 	// //comparable constraint
-	// fmt.Println(Contains([]int{1, 2, 3}, 2))       // true
+	// fmt.Println(Contains([]int{1, 2, 3}, 1))       // true
 	// fmt.Println(Contains([]string{"x", "y"}, "z")) // false
 
 	// //custom constraint - only allows int, int64, float64
@@ -96,14 +96,14 @@ func main() {
 	// })
 	// fmt.Println(strs)
 
-	// //generic struct - a stack of int
+	// // //generic struct - a stack of int
 	// intStack := Stack[int]{}
 	// intStack.Push(10)
 	// intStack.Push(20)
 	// value, ok := intStack.Pop()
 	// fmt.Println(value, ok) // 20 true
 
-	// //same struct, different type - a stack of string
+	// // //same struct, different type - a stack of string
 	// strStack := Stack[string]{}
 	// strStack.Push("hello")
 	// strStack.Push("world")
@@ -111,7 +111,7 @@ func main() {
 	// fmt.Println(top) // world
 
 	// //generic struct with two type parameters
-	// p := Pair[string, int]{Key: "age", Value: 25}
-	// fmt.Println(p.Key, p.Value)
+	p := Pair[int, string]{Key: 24, Value: "sss"}
+	fmt.Println(p.Key, p.Value)
 
 }

@@ -97,6 +97,25 @@ func safeCall(f func()) (err error) {
 	return err
 }
 
+// panic - stops the program immediately (use only for real bugs)
+func riskyDivide(a, b int) int {
+	if b == 0 {
+		panic("division by zero!")
+	}
+	return a / b
+}
+
+// recover - catches a panic so the program can keep running
+func safeDivide(a, b int) (result int) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("recovered from:", r)
+			result = 0
+		}
+	}()
+	return riskyDivide(a, b)
+}
+
 func main() {
 
 	//basic defer
@@ -131,6 +150,10 @@ func main() {
 	safeStep1()
 	fmt.Println("program is still running after the panic")
 	fmt.Println()
+
+	//panic + recover
+	fmt.Println(safeDivide(10, 0)) // prints recovered message, then 0
+	fmt.Println(safeDivide(10, 2)) // 5, no panic happened
 
 	//wrapping panics as normal errors
 	err := safeCall(func() {
